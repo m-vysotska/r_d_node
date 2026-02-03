@@ -1,0 +1,9 @@
+{
+  "name": "r_d_node",
+  "version": "0.0.1",
+  "description": "Robot dreams node course",
+  "author": "Mariia Vysotska",
+  "workspaces": [
+    "hw_1"
+  ]
+}
