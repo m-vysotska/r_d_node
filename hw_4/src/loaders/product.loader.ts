@@ -12,7 +12,13 @@ export class ProductLoader {
       async (productIds: readonly string[]) => {
         const products = await this.productsService.findByIds([...productIds]);
         const productMap = new Map(products.map(p => [p.id, p]));
-        return productIds.map(id => productMap.get(id) || null);
+        return productIds.map(id => {
+          const product = productMap.get(id);
+          if (!product) {
+            return new Error(`Product with id ${id} not found`);
+          }
+          return product;
+        });
       },
     );
   }

@@ -11,30 +11,30 @@ export enum OrderStatus {
 @Entity('orders')
 export class Order {
   @PrimaryGeneratedColumn('uuid')
-  id: string;
+  id!: string;
 
   @Column({ type: 'uuid' })
-  userId: string;
+  userId!: string;
 
   @ManyToOne(() => User)
   @JoinColumn({ name: 'userId' })
-  user: User;
+  user!: User;
 
   @Column({ type: 'enum', enum: OrderStatus, default: OrderStatus.PENDING })
-  status: OrderStatus;
+  status!: OrderStatus;
 
   @Column({ type: 'decimal', precision: 10, scale: 2 })
-  total: number;
+  total!: number;
 
   @Column({ type: 'varchar', length: 255, unique: true, nullable: true })
-  idempotencyKey: string;
+  idempotencyKey!: string | null;
 
   @CreateDateColumn()
-  createdAt: Date;
+  createdAt!: Date;
 
   @UpdateDateColumn()
-  updatedAt: Date;
+  updatedAt!: Date;
 
-  @OneToMany(() => OrderItem, orderItem => orderItem.order, { cascade: true })
-  items: OrderItem[];
+  @OneToMany(() => OrderItem, (orderItem: OrderItem) => orderItem.order, { cascade: true })
+  items!: OrderItem[];
 }

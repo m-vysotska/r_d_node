@@ -4,23 +4,23 @@ import { ProductModel } from './product.model';
 @ObjectType()
 export class OrderItemModel {
   @Field(() => ID)
-  id: string;
+  id!: string;
 
   @Field(() => ID)
-  orderId: string;
+  orderId!: string;
 
   @Field(() => ID)
-  productId: string;
+  productId!: string;
 
   @Field(() => Int)
-  quantity: number;
+  quantity!: number;
 
   @Field(() => Float)
-  price: number;
+  price!: number;
 
   @Field()
-  createdAt: Date;
+  createdAt!: Date;
 
   @Field(() => ProductModel)
-  product: ProductModel;
+  product!: ProductModel;
 }

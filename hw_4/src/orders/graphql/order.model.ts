@@ -5,23 +5,23 @@ import { OrderItemModel } from './order-item.model';
 @ObjectType()
 export class OrderModel {
   @Field(() => ID)
-  id: string;
+  id!: string;
 
   @Field(() => ID)
-  userId: string;
+  userId!: string;
 
   @Field(() => OrderStatus)
-  status: OrderStatus;
+  status!: OrderStatus;
 
   @Field(() => Float)
-  total: number;
+  total!: number;
 
   @Field()
-  createdAt: Date;
+  createdAt!: Date;
 
   @Field()
-  updatedAt: Date;
+  updatedAt!: Date;
 
   @Field(() => [OrderItemModel])
-  items: OrderItemModel[];
+  items!: OrderItemModel[];
 }

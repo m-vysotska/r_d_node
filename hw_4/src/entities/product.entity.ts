@@ -4,26 +4,26 @@ import { OrderItem } from './order-item.entity';
 @Entity('products')
 export class Product {
   @PrimaryGeneratedColumn('uuid')
-  id: string;
+  id!: string;
 
   @Column({ type: 'varchar', length: 255 })
-  name: string;
+  name!: string;
 
   @Column({ type: 'text', nullable: true })
-  description: string;
+  description!: string | null;
 
   @Column({ type: 'decimal', precision: 10, scale: 2 })
-  price: number;
+  price!: number;
 
   @Column({ type: 'int', default: 0 })
-  stock: number;
+  stock!: number;
 
   @CreateDateColumn()
-  createdAt: Date;
+  createdAt!: Date;
 
   @UpdateDateColumn()
-  updatedAt: Date;
+  updatedAt!: Date;
 
-  @OneToMany(() => OrderItem, orderItem => orderItem.product)
-  orderItems: OrderItem[];
+  @OneToMany(() => OrderItem, (orderItem: OrderItem) => orderItem.product)
+  orderItems!: OrderItem[];
 }

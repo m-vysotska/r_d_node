@@ -5,7 +5,7 @@ GraphQL API для Orders у курсовому e-commerce бекенді на N
 ## Встановлення
 
 ```bash
-npm install
+npm install --legacy-peer-deps
 ```
 
 ## Налаштування

@@ -5,28 +5,28 @@ import { Product } from './product.entity';
 @Entity('order_items')
 export class OrderItem {
   @PrimaryGeneratedColumn('uuid')
-  id: string;
+  id!: string;
 
   @Column({ type: 'uuid' })
-  orderId: string;
+  orderId!: string;
 
-  @ManyToOne(() => Order, order => order.items, { onDelete: 'CASCADE' })
+  @ManyToOne(() => Order, (order: Order) => order.items, { onDelete: 'CASCADE' })
   @JoinColumn({ name: 'orderId' })
-  order: Order;
+  order!: Order;
 
   @Column({ type: 'uuid' })
-  productId: string;
+  productId!: string;
 
   @ManyToOne(() => Product)
   @JoinColumn({ name: 'productId' })
-  product: Product;
+  product!: Product;
 
   @Column({ type: 'int' })
-  quantity: number;
+  quantity!: number;
 
   @Column({ type: 'decimal', precision: 10, scale: 2 })
-  price: number;
+  price!: number;
 
   @CreateDateColumn()
-  createdAt: Date;
+  createdAt!: Date;
 }

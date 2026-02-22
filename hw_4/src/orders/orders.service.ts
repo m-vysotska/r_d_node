@@ -36,7 +36,7 @@ export class OrdersService {
     return queryBuilder.getMany();
   }
 
-  async findOne(id: string): Promise<Order> {
+  async findOne(id: string): Promise<Order | null> {
     return this.ordersRepository.findOne({
       where: { id },
       relations: ['items', 'items.product', 'user'],
