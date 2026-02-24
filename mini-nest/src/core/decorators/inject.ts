@@ -11,6 +11,6 @@ export function Inject(token?: any) {
 }
 
 export function getInjectToken(target: any, parameterIndex: number): any {
-  const tokens: Map<number, any> = Reflect.getMetadata('inject:token', target) || new Map();
-  return tokens.get(parameterIndex);
+  const tokens: Map<number, any> = Reflect.getMetadata(INJECT_TOKEN_KEY, target) || new Map();
+  return tokens?.get(parameterIndex);
 }
