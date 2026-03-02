@@ -1,0 +1,31 @@
+services:
+  api:
+    build:
+      context: .
+      target: dev
+    ports:
+      - "8080:3000"
+    environment:
+      PORT: 3000
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_USERNAME: ${DB_USERNAME:-postgres}
+      DB_PASSWORD: ${DB_PASSWORD:-postgres}
+      DB_NAME: ${DB_NAME:-ecommerce}
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+      - /app/node_modules
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - internal
+
+volumes:
+  pgdata:
+
+networks:
+  internal:
+    driver: bridge

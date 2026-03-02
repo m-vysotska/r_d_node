@@ -14,7 +14,6 @@ export function UseInterceptors(
   };
 }
 
-/** Збирає глобальні + класові + метод-інтерцептори у правильному порядку */
 export function getInterceptors(
   handler: Function,
   controller: Function,
